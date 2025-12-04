@@ -34,5 +34,3 @@ echo
 echo "=== Possible brute-force patterns (multiple failures from same IP) ==="
 grep -Ei 'Failed password' "$AUTH_LOG" | awk '{for(i=1;i<=NF;i++){if($i ~ /rhost=|from=/){gsub("rhost=","",$i); gsub("from=","",$i); print $i}}}' \
   | sort | uniq -c | sort -nr | head
-
-echo
